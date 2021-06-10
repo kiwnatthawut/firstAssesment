@@ -90,11 +90,11 @@ function sortMinMax() {
 }
 
 function sortArray(v) {
-    let a = 0;
+
     for (let i = 0; i < v.length; i++) {
         for (let j = i; j < v.length; j++) {
             if (v[j] < v[i]) {
-                a = v[j];
+                let a = v[j];
                 v[j] = v[i];
                 v[i] = a;
             }
