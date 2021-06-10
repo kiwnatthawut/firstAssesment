@@ -67,7 +67,6 @@ function sortMinMax() {
 
     let v = document.getElementById('inputNumbers').value;
 
-
     let Numbers = [];
 
     v = v.split(',');
