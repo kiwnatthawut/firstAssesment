@@ -25,7 +25,6 @@ function check() {
 
     document.getElementById("total").value = checkpoint;
 
-
 }
 
 function isPrime(num) {
@@ -68,26 +67,37 @@ function sortMinMax() {
 
     let v = document.getElementById('inputNumbers').value;
 
-    let sortNum = []
+    let Numbers = [];
 
-    for (let element of v.split(',')) {
+    v = v.split(',');
+
+    for (let element of v) {
         element = parseFloat(element);
-        sortNum.push(element);
+        Numbers.push(element);
     }
 
-    sortNum.sort(function(a, b) {
-        return a - b;
-    });
-
     // Find Min & Max
-    maxNum = Math.max(...sortNum);
-    minNum = Math.min(...sortNum);
-
+    maxNum = Math.max(...Numbers);
+    minNum = Math.min(...Numbers);
 
     document.getElementById("showmax").value = maxNum;
 
     document.getElementById("showmin").value = minNum;
 
-    document.getElementById("showsort").value = sortNum;
+    document.getElementById("showsort").value = sortArray(v);
 
+}
+
+function sortArray(v) {
+    let a = 0;
+    for (let i = 0; i < v.length; i++) {
+        for (let j = i; j < v.length; j++) {
+            if (v[j] < v[i]) {
+                a = v[j];
+                v[j] = v[i];
+                v[i] = a;
+            }
+        }
+    }
+    return v;
 }
